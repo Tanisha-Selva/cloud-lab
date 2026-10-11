@@ -1,0 +1,123 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CloudLab</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- LOGIN SCREEN -->
+  <section id="loginScreen" class="login-screen">
+    <div class="login-card">
+      <h1>CloudLab<span>.</span></h1>
+      <p class="muted">Your cloud workspace, simplified.</p>
+
+      <div class="login-icon">☁</div>
+      <h2>Welcome back!</h2>
+      <p class="muted">Sign in to continue to your dashboard.</p>
+
+      <button id="loginBtn" class="login-button">
+        Login
+      </button>
+    </div>
+  </section>
+
+  <!-- DASHBOARD SCREEN -->
+  <main id="dashboard" class="main hidden">
+
+    <header class="topbar">
+      <div>
+        <p class="muted">WORKSPACE / OVERVIEW</p>
+        <h1>Dashboard</h1>
+      </div>
+
+      <div class="top-actions">
+        <span id="apiStatus" class="status">
+          <span class="dot"></span> Checking API
+        </span>
+        <button id="logoutBtn" class="secondary">Logout</button>
+      </div>
+    </header>
+
+    <section class="welcome">
+      <div>
+        <p class="eyebrow">YOUR CLOUD WORKSPACE</p>
+        <h2>Everything in one place.</h2>
+        <p>Manage your records using the REST API.</p>
+      </div>
+      <div class="welcome-icon">☁</div>
+    </section>
+
+    <section class="stats">
+      <article class="stat-card">
+        <p>Total Records</p>
+        <h2 id="totalRecords">0</h2>
+        <span>Records stored in the API</span>
+      </article>
+
+      <article class="stat-card">
+        <p>API Status</p>
+        <h2 id="apiText" class="green">Checking</h2>
+        <span>Backend: localhost:3000</span>
+      </article>
+    </section>
+
+    <section class="panel">
+      <div class="panel-heading">
+        <div>
+          <h2>Manage Records</h2>
+          <p>Add, update, view, or remove records.</p>
+        </div>
+        <button id="refreshBtn" class="secondary">↻ Refresh</button>
+      </div>
+
+      <form id="recordForm">
+        <input type="hidden" id="recordId">
+
+        <div class="form-grid">
+          <label>
+            Record name
+            <input id="name" placeholder="e.g. Customer Order" required>
+          </label>
+
+          <label>
+            Category
+            <input id="category" placeholder="e.g. Orders" required>
+          </label>
+        </div>
+
+        <div class="form-actions">
+          <button type="submit" id="saveBtn">+ Add Record</button>
+          <button type="button" id="cancelBtn"
+                  class="secondary hidden">Cancel Edit</button>
+        </div>
+      </form>
+
+      <p id="message" role="status"></p>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>NAME</th>
+              <th>CATEGORY</th>
+              <th>ACTIONS</th>
+            </tr>
+          </thead>
+          <tbody id="recordsBody">
+            <tr><td colspan="4">Loading records...</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <footer>CloudLab · REST API · <span id="year"></span></footer>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

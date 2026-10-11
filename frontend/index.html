@@ -1,0 +1,110 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Recordly | Data Space</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- LOGIN -->
+  <section id="loginScreen" class="login-screen">
+    <div class="login-box">
+      <div class="logo">r.</div>
+      <p class="kicker">YOUR PERSONAL DATA SPACE</p>
+      <h1>Everything in<br>one place.</h1>
+      <p class="intro">Create and organize your records in a simple workspace.</p>
+      <button id="loginBtn" class="primary-btn">Open my workspace <span>→</span></button>
+      <p class="login-note">Cloud Computing Lab Project</p>
+    </div>
+  </section>
+
+  <!-- WORKSPACE -->
+  <main id="dashboard" class="workspace hidden">
+
+    <header class="topbar">
+      <a class="wordmark" href="#">recordly<span>.</span></a>
+      <div class="top-actions">
+        <span class="connection"><i></i> API workspace</span>
+        <button id="logoutBtn" class="text-btn">Exit workspace ↗</button>
+      </div>
+    </header>
+
+    <section class="hero">
+      <div>
+        <p class="kicker">YOUR COLLECTION</p>
+        <h1>A little more<br><em>organized.</em></h1>
+        <p class="hero-copy">Keep your information tidy. Add a record, update it, or remove it whenever you need.</p>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <div class="art-card card-back"></div>
+        <div class="art-card card-front">
+          <span>✳</span>
+          <small>YOUR DATA</small>
+          <strong>In order.</strong>
+        </div>
+      </div>
+    </section>
+
+    <div class="section-bar">
+      <div>
+        <h2>Your records <span id="totalRecords" class="count">0</span></h2>
+        <p>All your saved items, together.</p>
+      </div>
+      <button id="refreshBtn" class="refresh-btn">↻ Refresh</button>
+    </div>
+
+    <section class="workspace-grid">
+
+      <!-- FORM -->
+      <aside class="editor">
+        <p class="kicker">RECORD EDITOR</p>
+        <h2>Create something.</h2>
+        <p class="editor-copy">Enter the details below to add a new item to your collection.</p>
+
+        <form id="recordForm">
+          <input type="hidden" id="recordId">
+
+          <label for="name">Name</label>
+          <input id="name" type="text" placeholder="e.g. Project notes" required>
+
+          <label for="category">Category</label>
+          <input id="category" type="text" placeholder="e.g. Academic" required>
+
+          <button id="saveBtn" class="primary-btn submit-btn" type="submit">
+            + Add to collection
+          </button>
+          <button id="cancelBtn" class="cancel-btn hidden" type="button">
+            Cancel editing
+          </button>
+        </form>
+
+        <p id="message" class="message" aria-live="polite"></p>
+      </aside>
+
+      <!-- RECORD CARDS -->
+      <section class="collection">
+        <div class="collection-heading">
+          <span>THE COLLECTION</span>
+          <span id="collectionLabel">Live records</span>
+        </div>
+
+        <div id="recordsBody" class="record-grid">
+          <p class="empty-state">Loading your records...</p>
+        </div>
+      </section>
+
+    </section>
+
+    <footer>
+      <span>recordly.</span>
+      <span>Made for your workflow · <span id="year"></span></span>
+    </footer>
+
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
